@@ -21,15 +21,9 @@ def bfs_traversal(G: nx.Graph, start: int) -> list[int]:
 
 # 5. Find Shortest Path
 def find_shortest_path(G: nx.Graph, source: int, target: int) -> list[int]:
-    try:
-        return nx.shortest_path(G, source=source, target=target)
-    except nx.NetworkXNoPath:
-        return []
+    return nx.shortest_path(G, source=source, target=target)
 
 # 6. visualize Graph
 def visualize_graph(G: nx.Graph) -> None:
-    plt.figure(figsize=(8, 6))
-    pos = nx.spring_layout(G)
-    nx.draw(G, pos, with_labels=True, node_size=700, node_color='skyblue', edge_color='gray', font_size=12)
-    plt.savefig('graph_visualization.png')
+    nx.draw(G)
     plt.show()
